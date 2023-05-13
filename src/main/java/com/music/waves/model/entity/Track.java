@@ -16,7 +16,7 @@ public class Track {
     private String title;
 
     @Column(name="duration")
-    private Duration duration = null;
+    private Integer duration = null;
 
     @Column(name="levelmap")
     private String levelMap = null;
@@ -37,11 +37,11 @@ public class Track {
         this.title = title;
     }
 
-    public Duration getDuration() {
+    public Integer getDuration() {
         return duration;
     }
 
-    public void setDuration(Duration duration) {
+    public void setDuration(Integer duration) {
         this.duration = duration;
     }
 
