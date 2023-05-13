@@ -10,4 +10,5 @@ import java.util.List;
 
 public interface LeaderboardRepository extends JpaRepository<Leaderboard, Integer> {
     List<Leaderboard> findByTrackID(Integer id);
+    List<Leaderboard> findByTrackIdAndPlayerId(Integer trackId, Integer playerId);
 }

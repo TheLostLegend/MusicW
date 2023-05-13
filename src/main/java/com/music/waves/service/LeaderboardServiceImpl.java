@@ -39,5 +39,26 @@ public class LeaderboardServiceImpl implements LeaderboardService {
         return leaderboardAList;
     }
 
+    @Override
+    public Leaderboard createLeaderboard(Leaderboard leaderboard) {
+        return leaderboardRepository.save(leaderboard);
+    }
+
+    @Override
+    public Leaderboard updateLeaderboard(Leaderboard leaderboard) {
+        List<Leaderboard> leaderboardList = leaderboardRepository.findByTrackIdAndPlayerId(leaderboard.getTrackID(), leaderboard.getPlayerID());
+        if (leaderboardList.get(0).getScore() == null){
+            throw new ResourceNotFoundException("There is no leaderboards");
+        }
+        if (leaderboardList.get(0).getScore() < leaderboard.getScore())
+        return leaderboardRepository.save(leaderboard);
+        else return leaderboardList.get(0);
+    }
+
+    @Override
+    public boolean isLeaderboardExistByID2(Integer trackID, Integer playerID) {
+        List<Leaderboard> leaderboardList = leaderboardRepository.findByTrackIdAndPlayerId(trackID, playerID);
+        return !leaderboardList.isEmpty();
+    }
 
 }
