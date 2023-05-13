@@ -37,7 +37,7 @@ public class TrackController {
     }
     @PostMapping("/create")
     public ResponseEntity<Message> createTrack(@RequestBody Track track){
-        if (trackService.isTrackExistByTitle(track.getTitle())){
+        if (!trackService.isTrackExistByTitle(track.getTitle())){
             Track resTrack = trackService.createTrack(track);
             return new ResponseEntity<>(new Message("success", resTrack.getTrackID()), HttpStatus.OK);}
         else {
