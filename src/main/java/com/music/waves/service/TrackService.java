@@ -7,6 +7,7 @@ import java.util.List;
 
 public interface TrackService {
     public boolean isTrackExistByTitle(String title);
+    public Track getTrackByTitle(String title);
     public Track createTrack(Track track);
     public Track getTrackByID(Integer id);
     public List<Track> getTracks();

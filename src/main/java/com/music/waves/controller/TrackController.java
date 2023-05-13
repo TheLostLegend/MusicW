@@ -29,7 +29,8 @@ public class TrackController {
     @GetMapping("/is_exist")
     public ResponseEntity<Message> isTrackExistByTitle(@RequestParam String title){
         if (trackService.isTrackExistByTitle(title)){
-            return new ResponseEntity<>(new Message("success", null),HttpStatus.OK);
+            Track resTrack = trackService.getTrackByTitle(title);
+            return new ResponseEntity<>(new Message("success", resTrack.getTrackID()),HttpStatus.OK);
         }
         else {
             return new ResponseEntity<>(new Message("fail", null),HttpStatus.NOT_FOUND);

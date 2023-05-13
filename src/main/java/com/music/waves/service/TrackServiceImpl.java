@@ -27,6 +27,12 @@ public class TrackServiceImpl implements TrackService {
     }
 
     @Override
+    public Track getTrackByTitle(String title) {
+        List<Track> result = TrackRepository.findByTitle(title);
+        return result.get(0);
+    }
+
+    @Override
     public List<Track> getTracks() {
         List<Track> result = TrackRepository.findAll();
         return result;
