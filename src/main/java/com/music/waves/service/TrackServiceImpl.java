@@ -34,9 +34,6 @@ public class TrackServiceImpl implements TrackService {
 
     @Override
     public Track createTrack(Track track){
-        if(!TrackRepository.findByTitle(track.getTitle()).isEmpty()){
-            throw new ResourceNotFoundException("Title taken");
-        }
         return TrackRepository.save(track);
     }
     @Override

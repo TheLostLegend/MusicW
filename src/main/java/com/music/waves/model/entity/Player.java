@@ -21,10 +21,10 @@ public class Player {
     private String password;
 
     @Column(name="registerdata")
-    private Timestamp registerData = null;
+    private Timestamp registerData = new Timestamp(System.currentTimeMillis());
 
     @Column(name="lastlogindata")
-    private Timestamp lastLoginData = null;
+    private Timestamp lastLoginData = new Timestamp(System.currentTimeMillis());
 
     public Integer getPlayerID() {
         return playerID;

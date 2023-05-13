@@ -41,7 +41,7 @@ public class TrackController {
             Track resTrack = trackService.createTrack(track);
             return new ResponseEntity<>(new Message("success", resTrack.getTrackID()), HttpStatus.OK);}
         else {
-            return new ResponseEntity<>(new Message("fail", null),HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(new Message("fail", null), HttpStatus.OK);
         }
     }
 }
