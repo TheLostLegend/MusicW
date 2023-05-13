@@ -46,7 +46,7 @@ public class LeaderboardServiceImpl implements LeaderboardService {
 
     @Override
     public Leaderboard updateLeaderboard(Leaderboard leaderboard) {
-        List<Leaderboard> leaderboardList = leaderboardRepository.findByTrackIdAndPlayerId(leaderboard.getTrackID(), leaderboard.getPlayerID());
+        List<Leaderboard> leaderboardList = leaderboardRepository.findByTrackIDAndPlayerID(leaderboard.getTrackID(), leaderboard.getPlayerID());
         if (leaderboardList.get(0).getScore() == null){
             throw new ResourceNotFoundException("There is no leaderboards");
         }
@@ -57,7 +57,7 @@ public class LeaderboardServiceImpl implements LeaderboardService {
 
     @Override
     public boolean isLeaderboardExistByID2(Integer trackID, Integer playerID) {
-        List<Leaderboard> leaderboardList = leaderboardRepository.findByTrackIdAndPlayerId(trackID, playerID);
+        List<Leaderboard> leaderboardList = leaderboardRepository.findByTrackIDAndPlayerID(trackID, playerID);
         return !leaderboardList.isEmpty();
     }
 
