@@ -39,6 +39,11 @@ public class TrackServiceImpl implements TrackService {
     }
 
     @Override
+    public List<Track> getTracksByTitle(String title) {
+        return TrackRepository.findByTitleAndAdditionalWord(title);
+    }
+
+    @Override
     public Track createTrack(Track track){
         return TrackRepository.save(track);
     }

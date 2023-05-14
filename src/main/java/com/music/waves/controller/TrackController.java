@@ -26,6 +26,11 @@ public class TrackController {
         return trackService.getTracks();
     }
 
+    @GetMapping("/show")
+    public List<Track> getTracksByTitle(@RequestParam String title){
+        return trackService.getTracksByTitle(title);
+    }
+
     @GetMapping("/is_exist")
     public ResponseEntity<Message> isTrackExistByTitle(@RequestParam String title){
         if (trackService.isTrackExistByTitle(title)){

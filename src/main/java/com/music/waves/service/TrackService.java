@@ -11,4 +11,5 @@ public interface TrackService {
     public Track createTrack(Track track);
     public Track getTrackByID(Integer id);
     public List<Track> getTracks();
+    public List<Track> getTracksByTitle(String title);
 }
