@@ -9,5 +9,5 @@ public class WavesApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(WavesApplication.class, args);
 	}
-
+	//Nice one
 }
